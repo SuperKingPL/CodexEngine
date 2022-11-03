@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <link rel="stylesheet" href="/editor.css">
+        <title>Codex Engine GUI</title>
+    </head>
+    <body>
+        <div id="errorVisibility" style="display: none;">
+            <div class="error">
+                <h1 style="margin: 10px;" id="errortitle">Wystąpił błąd</h1>
+                <h3 style="margin: 10px;" id="errorcontent">ERROR WYWALIŁO WINDOWSA !!! LUDZIE UCIEKAJCIE LUDZIE !!</h3>
+                <button class="errorBtn" onclick="closeError();">Zamknij</button>
+            </div>
+        </div>
+        <div id="debug">
+            <img src="/codex-logo-vector.png" width="110px" height="20px">
+            No debug data here.
+        </div>
+        <div id="bloczki">
+            <div class="przycisk skrypty">Skrypty</div>
+            <div class="przycisk kostiumy">Kostiumy</div>
+        </div>
+        <div id="menu">
+            
+        </div>
+
+        <div class="canvas-interface">
+            <canvas id="project" width="500" height="500"></canvas><br>
+            
+            <div class="objects">
+                <button id="showconsole" onclick="showError('Ta funkcja nie jest jeszcze dostępna.', 'Ta funkcja nie jest dostępna w tym trybie.<br><br>ERR_HTTPPOST_405<color=blue>test');">Pokaż konsolkę</button>
+            </div>
+            
+        </div>
+        
+
+
+        <script src="/blocks.js"></script>
+        <script src="/debug.js"></script>
+    </body>
+</html>
