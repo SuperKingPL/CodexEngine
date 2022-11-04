@@ -3,8 +3,8 @@ function showError(text, content) {
     const Errortitle = document.getElementById("errortitle");
     const Errorcontent = document.getElementById("errorcontent");
 
-    Errortitle.innerHTML = replaceColors(text);
-    Errorcontent.innerHTML = replaceColors(content);
+    Errortitle.innerHTML = (text);
+    Errorcontent.innerHTML = (content);
 
     error.style.display = 'grid';
 }
@@ -15,7 +15,7 @@ function closeError() {
 }
 function logData(data) {
     const debug = document.getElementById("debug");
-    debug.innerHTML = replaceColors(data);
+    debug.innerHTML = data;
 }
 
 function replaceColors(text) {
