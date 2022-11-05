@@ -1,23 +1,19 @@
 function showError(text, content) {
-    const error = document.getElementById("errorVisibility");
+    const error = document.getElementById("errorContainer");
     const Errortitle = document.getElementById("errortitle");
     const Errorcontent = document.getElementById("errorcontent");
 
     Errortitle.innerHTML = (text);
     Errorcontent.innerHTML = (content);
 
-    error.style.display = 'grid';
+    $("#errorContainer").fadeIn(150);
 }
 function closeError() {
-    const error = document.getElementById("errorVisibility");
+    const error = document.getElementById("errorContainer");
     
-    error.style.display = 'none';
+    $("#errorContainer").fadeOut(150);
 }
 function logData(data) {
     const debug = document.getElementById("debug");
     debug.innerHTML = data;
-}
-
-function replaceColors(text) {
-   return text.split("<color").join("<font color");
 }

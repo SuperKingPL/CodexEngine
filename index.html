@@ -5,17 +5,18 @@
     <head>
         <link rel="stylesheet" href="/editor.css">
         <link rel="stylesheet" href="/vmeditor.css">
+        <link rel="stylesheet" href="/Style/utils.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <title>Codex Engine GUI</title>
     </head>
     <body>
         <input type="file" id="fileopen" style="display: none;">
-        <div id="errorVisibility" style="display: none;">
+        <div id="errorContainer" style="display: none;">
             <div class="error">
-                <h1 style="margin: 10px;" id="errortitle">Wystąpił błąd</h1>
-                <h3 style="margin: 10px;" id="errorcontent">ERROR WYWALIŁO WINDOWSA !!! LUDZIE UCIEKAJCIE LUDZIE !!</h3>
-                <button class="errorBtn" onclick="closeError();">Zamknij</button>
+                <h1 id="errortitle">Error Title</h1>
+                <p id="errorcontent">Error Content</p>
+                <button red onclick="closeError();">Zamknij</button>
             </div>
         </div>
         <div id="debug">
@@ -24,12 +25,12 @@
             <img style="margin-left: auto;" id="play" src="/Assets/play.png" width="35px" height="35px">
         </div>
         <div id="app">
-            <div id="bloczki">
+            <div class="blocks">
                 <div class="przycisk skrypty">Skrypty</div>
                 <div class="przycisk kostiumy">Kostiumy</div>
     
                 <!-- Skrypty -->
-                <div class="kategoria"></div>
+                <div class="cat"></div>
             </div>
             <div id="menu">
                 <block red id="b">Wyświetl tekst<input id="n" num></block>
@@ -38,21 +39,18 @@
             </div>
     
             <div class="canvas-interface">
-                
-                <canvas id="project" width="500" height="500">
-                    
-                </canvas> 
+                <canvas id="project" width="500" height="500"></canvas> 
                 <br>
                 <div class="objects">
-                    <button id="showconsole" onclick="showError('Ta funkcja nie jest jeszcze dostępna.', 'Ta funkcja nie jest dostępna w tym trybie.<br><br>ERR_HTTPPOST_405<color=blue>test');">Pokaż konsolkę</button>
-                    <button id="showconsole" onclick="openProject();">Otwórz projekt</button>
-                    <button id="showconsole" onclick="showSprites();">Pokaż duszki</button>
-                    <button id="showconsole" onclick="showVariables();">Pokaż zmienne</button>
+                    <button onclick="showError('Ta funkcja nie jest jeszcze dostępna.', 'Ta funkcja nie jest dostępna w tym trybie.<br><br><color blue>ERR_HTTPPOST_405</color>');">Pokaż konsolkę</button>
+                    <button onclick="openProject();">Otwórz projekt</button>
+                    <button onclick="showSprites();">Pokaż duszki</button>
+                    <button onclick="showVariables();">Pokaż zmienne</button>
                 </div>
-                
             </div>
         </div>
 
+        <!-- Import important scripts -->
         <script src="Scripts/blocks.js"></script>
         <script src="/Scripts/debug.js"></script>
         <script src="/Scripts/scratch-to-codex.js"></script>
