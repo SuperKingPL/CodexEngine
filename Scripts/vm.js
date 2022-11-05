@@ -49,4 +49,5 @@ function runProject() {
     }
 }
 
-logData("Wydanie beta 1.0. Wczesny dostęp.");
+showError("Codex Engine 2.0", "<b>Co nowego?</b><br>・system przesuwania bloczków.<br>・wiadomość przy uruchomieniu projektu.<br>・skrypty, kompatybilności Codex Engine ze Scratchem.<br>・Typy bloków<br>・Debuger Scratcha<br>・Naprawy błędów (w tym ekranu).")
+logData("Wydanie oficjalne 1.0. Wczesny dostęp.");
