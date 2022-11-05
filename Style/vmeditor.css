@@ -1,14 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap%27');
 
+body {
+    background-color: rgb(228, 228, 228);
+}
 #project {
     border: outset  5px;
     background-color: white;
     border-radius: 5px;
     margin: 10px;
-}
-body {
-    background-color: rgb(228, 228, 228);
 }
 .blocks{
     width: 500px;
@@ -28,7 +28,7 @@ body {
     padding: 3px;
     overflow: scroll;
 }
-.przycisk{
+.category{
     background-color: rgb(0, 166, 255);
     text-align: center;
     line-height: 50px;
@@ -37,15 +37,15 @@ body {
     height: 50px;
     transition: 0.1s;
 }
-.przycisk:hover {
+.category:hover {
     background-color: rgb(0, 204, 255);
     transition: 0.1s;
 }
-.kostiumy {
+.category.left {
     float: right;
     border-top-right-radius: 10px;
 }
-.skrypty {
+.category.right {
     float: left;
     border-top-left-radius: 10px;
 }
@@ -66,7 +66,7 @@ body {
     transition: 2s;
 }
 #play:hover {
-    filter:hue-rotate(180deg);
+    filter:hue-rotate(360deg);
     transition: 2s;
     cursor: pointer;
 }

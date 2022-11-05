@@ -3,9 +3,9 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="/editor.css">
-        <link rel="stylesheet" href="/vmeditor.css">
-        <link rel="stylesheet" href="/Style/utils.css">
+        <link rel="stylesheet" href="./Style/vmeditor.css">
+        <link rel="stylesheet" href="./Style/vmblocks.css">
+        <link rel="stylesheet" href="./Style/utils.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <title>Codex Engine GUI</title>
@@ -26,8 +26,8 @@
         </div>
         <div id="app">
             <div class="blocks">
-                <div class="przycisk skrypty">Skrypty</div>
-                <div class="przycisk kostiumy">Kostiumy</div>
+                <div class="category left">Skrypty</div>
+                <div class="category right">Kostiumy</div>
     
                 <!-- Skrypty -->
                 <div class="cat"></div>
@@ -43,18 +43,20 @@
                 <br>
                 <div class="objects">
                     <button onclick="showError('Ta funkcja nie jest jeszcze dostępna.', 'Ta funkcja nie jest dostępna w tym trybie.<br><br><color blue>ERR_HTTPPOST_405</color>');">Pokaż konsolkę</button>
-                    <button onclick="openProject();">Otwórz projekt</button>
-                    <button onclick="showSprites();">Pokaż duszki</button>
-                    <button onclick="showVariables();">Pokaż zmienne</button>
+                    <debugonly>
+                        <button onclick="openProject();">Otwórz projekt</button>
+                        <button onclick="showSprites();">Pokaż duszki</button>
+                        <button onclick="showVariables();">Pokaż zmienne</button>
+                    </debugonly>
                 </div>
             </div>
         </div>
 
         <!-- Import important scripts -->
-        <script src="Scripts/blocks.js"></script>
-        <script src="/Scripts/debug.js"></script>
-        <script src="/Scripts/scratch-to-codex.js"></script>
-        <script src="/Scripts/drag.js"></script>
-        <script src="/Scripts/vm.js"></script>
+        <script src="./Scripts/blocks.js"></script>
+        <script src="./Scripts/debug.js"></script>
+        <script src="./Scripts/scratch-to-codex.js"></script>
+        <script src="./Scripts/drag.js"></script>
+        <script src="./Scripts/vm.js"></script>
     </body>
 </html>
