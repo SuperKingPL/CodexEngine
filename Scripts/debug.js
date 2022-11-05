@@ -47,3 +47,21 @@ function debugonly() {
     }
 }
 debugonly();
+
+function displayTooltip(tooltipText, object, type, interval = 3) {
+    var tooltip = document.createElement("tooltip");
+    var tooltipText = document.createTextNode(tooltipText);
+    if (type == "top" || type == "bottom" || type == "left" || type == "right") {
+        tooltip.setAttribute("type", type);
+        tooltip.appendChild(tooltipText);
+        object.appendChild(tooltip);
+        $(tooltip).fadeIn(450);
+        if (interval !== null) {
+            setTimeout(() => {
+                $(tooltip).fadeOut(450);
+            }, interval * 1000);
+        }
+    } else {
+        console.error("Cannot set tooltip. Invalid type.")
+    }
+}

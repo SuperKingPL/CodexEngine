@@ -9,9 +9,12 @@ body, html {
     background-color: white;
     border-radius: 5px;
     margin: 10px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgb(255, 255, 255);
+    -moz-box-shadow: 8px 8px 24px 0px rgb(255, 255, 255);
+    box-shadow: 8px 8px 24px 0px rgb(255, 255, 255);
 }
 .blocks{
-    width: 500px;
+    width: 400px;
     height: 800px;
     float: left;
     margin: 10px;
@@ -19,7 +22,7 @@ body, html {
     border-radius: 10px;
 }
 #menu {
-    width: 730px;
+    width: 950px;
     height: 794px;
     float: left;
     margin: 10px;
@@ -114,6 +117,7 @@ h1, p {
     left: 0;
     width: 100%;
     height: 100%;
+    
     background-color: rgba(0, 0, 0, 0.813);
 }
 .error {
@@ -158,15 +162,20 @@ h1 {
     margin: 10px;
 }
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
   }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
   
 ::-webkit-scrollbar-thumb {
-    background: rgb(0, 100, 200);
-  } 
+    background-image: linear-gradient(180deg, #0a6eda 0%, #1647cc 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    border-radius: 100px;
+    filter: brightness(100%);
+    transition: 0.3s;
+}
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(0, 124, 249);
-  }
+    filter: brightness(120%);
+    transition: 0.3s;
+}
