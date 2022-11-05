@@ -1,1 +1,0 @@
-$("block").draggable({containment: "#menu"});

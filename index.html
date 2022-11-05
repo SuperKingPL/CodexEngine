@@ -6,6 +6,10 @@
         <link rel="stylesheet" href="./Style/vmeditor.css">
         <link rel="stylesheet" href="./Style/vmblocks.css">
         <link rel="stylesheet" href="./Style/utils.css">
+        <link rel="stylesheet" href="./Style/snowflake.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <title>Codex Engine GUI</title>
@@ -21,8 +25,8 @@
         </div>
         <div id="debug">
             <img src="/Assets/codex-logo-vector.png" width="110px" height="20px">
-            No debug data here.
-            <img style="margin-left: auto;" id="play" src="/Assets/play.png" width="35px" height="35px">
+            <span style="margin-left: 15px;" id="debugData">No debug data here.</span>
+            <img style="margin-left: auto;" id="play" src="/Assets/play.png" width="35px" height="35px" onclick="runProject();">
         </div>
         <div id="app">
             <div class="blocks">
@@ -53,10 +57,9 @@
         </div>
 
         <!-- Import important scripts -->
-        <script src="./Scripts/blocks.js"></script>
         <script src="./Scripts/debug.js"></script>
+        <script src="./Scripts/blocks.js"></script>
         <script src="./Scripts/scratch-to-codex.js"></script>
-        <script src="./Scripts/drag.js"></script>
         <script src="./Scripts/vm.js"></script>
     </body>
 </html>

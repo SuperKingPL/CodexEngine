@@ -1,7 +1,15 @@
 // Developer mode.
 isDebug = false;
 
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function showError(text, content) {
+    const errorSound = new Audio("/Sounds/showError.mp3");
+    errorSound.play();
+
     const error = document.getElementById("errorContainer");
     const Errortitle = document.getElementById("errortitle");
     const Errorcontent = document.getElementById("errorcontent");
@@ -12,12 +20,13 @@ function showError(text, content) {
     $("#errorContainer").fadeIn(150);
 }
 function closeError() {
-    const error = document.getElementById("errorContainer");
-    
+    const errorSound = new Audio("/Sounds/hideError.mp3");
+    errorSound.play();
+
     $("#errorContainer").fadeOut(150);
 }
 function logData(data) {
-    const debug = document.getElementById("debug");
+    const debug = document.getElementById("debugData");
     debug.innerHTML = data;
 }
 

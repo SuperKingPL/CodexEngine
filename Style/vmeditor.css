@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap%27');
 
-body {
+body, html {
     background-color: rgb(228, 228, 228);
 }
 #project {
@@ -25,7 +25,6 @@ body {
     margin: 10px;
     background-color: white;
     border-radius: 10px;
-    padding: 3px;
     overflow: scroll;
 }
 .category{
@@ -62,12 +61,12 @@ body {
     height: 35px;
 }
 #play {
-    filter:hue-rotate(0deg);
-    transition: 2s;
+    filter:brightness(100%);
+    transition: 0.3s;
 }
 #play:hover {
-    filter:hue-rotate(360deg);
-    transition: 2s;
+    filter: brightness(120%);
+    transition: 0.3s;
     cursor: pointer;
 }
 #app {

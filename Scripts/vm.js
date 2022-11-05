@@ -23,7 +23,30 @@ function addTextToViewport(text, font_size, font, width, height) {
     }
 }
 
-// const viewport = document.getElementById("project");
-// const ctx = viewport.getContext('2d');
-// ctx.font = "32px Sans-Serif"
-// ctx.fillText('Hello world', 10, 50);
+var projectRunning = false;
+
+function runProject() {
+
+    showError("Odtwarzania projektów nie jest jeszcze dostępne.", "Codex Engine jest w fazie BETA, przez co nie wszystkie funkcje są dostępne. <color blue>Masz tutaj padający śnieg, dla rozluźnienia :)</color>")
+
+    if (!projectRunning) {
+        const snowflakes = document.createElement("div");
+        snowflakes.id = "snowflakes";
+        document.body.insertBefore(snowflakes, document.body.firstChild);
+        for (var i = 0; i < 12; i++) {
+            const snowflake = document.createElement("div");
+            const snowflakeContent = document.createTextNode("❆");
+            snowflake.appendChild(snowflakeContent);
+            snowflakes.appendChild(snowflake);
+            snowflake.className = "snowflake";
+        }
+        projectRunning = true;
+    } else {
+        const snowflakes = document.getElementById("snowflakes");
+        snowflakes.innerHTML = "";
+        snowflakes.remove();
+        projectRunning = false;
+    }
+}
+
+logData("Beta Release 1.0 - Work in progress...");
