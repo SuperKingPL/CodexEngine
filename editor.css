@@ -49,12 +49,30 @@ body {
     border-top-left-radius: 10px;
 }
 #debug {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    flex-direction: row;
+    justify-content: center;
     background-color: white;
     border: solid;
     border-color: rgb(0, 124, 249);
-    padding: 10px;
     margin: 10px;
-    height: 20px;
+    height: 35px;
+}
+#play {
+    filter:hue-rotate(0deg);
+    transition: 2s;
+}
+#play:hover {
+    filter:hue-rotate(180deg);
+    transition: 2s;
+    cursor: pointer;
+}
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 * {
     margin: 0;
@@ -80,6 +98,7 @@ body {
 
 /* ERROR */
 #errorVisibility {
+    z-index: 300;
     position: absolute;
     top: 0;
     left: 0;
