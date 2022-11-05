@@ -2,6 +2,8 @@
 ## codexengine.ml
 Codex – interpretowany wizualny język programowania. Został zaprojektowany przez Microplay, jest rozwijany przez zespół pracujący w Microplay i Pocik Company.
 
+[Otwórz silnik][https://codexengine.ml]
+
 ### Bloki i komendy silnika
 | Blok | Rodzaj | Opis |
 | ------ | ----- | ------ |
