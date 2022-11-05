@@ -49,4 +49,4 @@ function runProject() {
     }
 }
 
-logData("Beta Release 1.0 - Work in progress...");
+logData("Wydanie beta 1.0. Wczesny dostęp.");
