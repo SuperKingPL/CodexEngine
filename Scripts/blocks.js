@@ -1,16 +1,19 @@
-function KompilujGre() {
-    const gra = document.getElementById("project");
-    if (gra.getContext) {
-        const ctx = gra.getContext("2d");
+$("block").draggable({containment: "#menu"});
 
-        for (let i = 0; i < 6; i++) {
-            for (let j = 0; j < 6; j++) {
-              ctx.strokeStyle = `rgb(0, ${Math.floor(255 - 42.5 * i)}, ${Math.floor(255 - 42.5 * j)})`;
-              ctx.beginPath();
-              ctx.arc(180 + j * 25, 160 + i * 25, 10, 0, 2 * Math.PI, true);
-              ctx.stroke();
-            }
-        }
+function randomBlockPosition() {
+    const blocks = document.getElementsByTagName("block");
+    const space = document.getElementById("menu");
+
+    for (var i = 0; i < blocks.length; i++) {
+        let block = blocks[i];
+
+        var positionX = rand(195, 383);
+        var positionY = rand(8, 739);
+
+        block.style.left = positionX.toString() + "px";
+        block.style.top = positionY.toString() + "px";
+        console.log(block);
     }
 }
-KompilujGre();
+
+randomBlockPosition();

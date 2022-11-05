@@ -1,16 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap%27');
 
+body, html {
+    background-color: rgb(228, 228, 228);
+}
 #project {
     border: outset  5px;
     background-color: white;
     border-radius: 5px;
     margin: 10px;
 }
-body {
-    background-color: rgb(228, 228, 228);
-}
-#bloczki{
+.blocks{
     width: 500px;
     height: 800px;
     float: left;
@@ -19,14 +19,15 @@ body {
     border-radius: 10px;
 }
 #menu {
-    width: 850px;
-    height: 800px;
+    width: 730px;
+    height: 794px;
     float: left;
     margin: 10px;
     background-color: white;
     border-radius: 10px;
+    overflow: scroll;
 }
-.przycisk{
+.category{
     background-color: rgb(0, 166, 255);
     text-align: center;
     line-height: 50px;
@@ -35,25 +36,43 @@ body {
     height: 50px;
     transition: 0.1s;
 }
-.przycisk:hover {
+.category:hover {
     background-color: rgb(0, 204, 255);
     transition: 0.1s;
 }
-.kostiumy {
+.category.left {
     float: right;
     border-top-right-radius: 10px;
 }
-.skrypty {
+.category.right {
     float: left;
     border-top-left-radius: 10px;
 }
 #debug {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    flex-direction: row;
+    justify-content: center;
     background-color: white;
     border: solid;
     border-color: rgb(0, 124, 249);
-    padding: 10px;
     margin: 10px;
-    height: 20px;
+    height: 35px;
+}
+#play {
+    filter:brightness(100%);
+    transition: 0.3s;
+}
+#play:hover {
+    filter: brightness(120%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 * {
     margin: 0;
@@ -61,24 +80,35 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     user-select: none;
 }
-#showconsole {
+button {
     float: right;
     border: none;
     background-color: rgb(0, 124, 249);
     padding: 5px;
     margin: 10px;
     color: white;
+    filter: brightness(100%);
     transition: 0.1s;
     border-radius: 3px;
     font-size: 20px;
+    height: 40px;
+    min-width: 150px;
 }
-#showconsole:hover {
+button:hover {
     background-color: rgb(0, 145, 249);
+    filter: brightness(120%);
     transition: 0.1s;
+}
+button[red] {
+    background-color: rgb(191, 0, 0);
+}
+h1, p {
+    margin: 10px;
 }
 
 /* ERROR */
-#errorVisibility {
+#errorContainer {
+    z-index: 300;
     position: absolute;
     top: 0;
     left: 0;
@@ -95,6 +125,9 @@ body {
     width: 420px;
     height: 300px;
     border-radius: 10px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 .errorBtn {
     background-color: rgb(188, 1, 1);
