@@ -20,12 +20,13 @@ body {
 }
 #menu {
     width: 730px;
-    height: 740px;
+    height: 794px;
     float: left;
     margin: 10px;
     background-color: white;
     border-radius: 10px;
-    padding: 30px;
+    padding: 3px;
+    overflow: scroll;
 }
 .przycisk{
     background-color: rgb(0, 166, 255);

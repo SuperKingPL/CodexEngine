@@ -3,7 +3,7 @@ block {
     color: white;
     border-radius: 5px;
     cursor:move;
-    position: absolute;
+    position:relative;
 
     padding: 10px;
 }
