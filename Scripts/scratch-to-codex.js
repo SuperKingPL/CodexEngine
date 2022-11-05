@@ -54,7 +54,7 @@ function getSpriteVariables(sprite) {
     }
     return variables;
 }
-
+// Show variables from scratch project.
 function showVariables() {
     var errorText = "";
     var variables = getPublicVariables(getScene(projekt));
@@ -63,6 +63,7 @@ function showVariables() {
     }
     showError("Zmienne w tym projekcie", errorText)
 }
+// Show sprites from Scratch project.
 function showSprites() {
     var errorText = "";
     var variables = getSprites(projekt);
@@ -71,10 +72,11 @@ function showSprites() {
     }
     showError("Duszki w tym projekcie", errorText)
 }
+// Open Scratch Project.
 function openProject() {
     document.getElementById("fileopen").click();
 }
-
+// Open scratch project.
 document.getElementById("fileopen").addEventListener('change', function() {
     var fr = new FileReader();
     fr.onload = function() {
