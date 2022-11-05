@@ -4,9 +4,13 @@
 
     <head>
         <link rel="stylesheet" href="/editor.css">
+        <link rel="stylesheet" href="/vmeditor.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <title>Codex Engine GUI</title>
     </head>
     <body>
+        <input type="file" id="fileopen" style="display: none;">
         <div id="errorVisibility" style="display: none;">
             <div class="error">
                 <h1 style="margin: 10px;" id="errortitle">Wystąpił błąd</h1>
@@ -23,7 +27,7 @@
             <div class="przycisk kostiumy">Kostiumy</div>
         </div>
         <div id="menu">
-            
+            <block red id="b">Wyświetl tekst<input id="n" num></block>
         </div>
 
         <div class="canvas-interface">
@@ -31,6 +35,9 @@
             
             <div class="objects">
                 <button id="showconsole" onclick="showError('Ta funkcja nie jest jeszcze dostępna.', 'Ta funkcja nie jest dostępna w tym trybie.<br><br>ERR_HTTPPOST_405<color=blue>test');">Pokaż konsolkę</button>
+                <button id="showconsole" onclick="openProject();">Otwórz projekt</button>
+                <button id="showconsole" onclick="showSprites();">Pokaż duszki</button>
+                <button id="showconsole" onclick="showVariables();">Pokaż zmienne</button>
             </div>
             
         </div>
@@ -40,5 +47,7 @@
         <script src="Scripts/blocks.js"></script>
         <script src="/Scripts/debug.js"></script>
         <script src="/Scripts/scratch-to-codex.js"></script>
+        <script src="/Scripts/drag.js"></script>
+        <script src="/Scripts/vm.js"></script>
     </body>
 </html>

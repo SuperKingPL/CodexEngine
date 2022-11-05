@@ -55,13 +55,36 @@ function getSpriteVariables(sprite) {
     return variables;
 }
 
-function DebugA() {
+function showVariables() {
     var errorText = "";
-    var variables = getSpriteVariables(getSpriteByName(projekt, "Pierwszy duszek"));
+    var variables = getPublicVariables(getScene(projekt));
     for (var i = 0; i < variables.length; i++) {
-        errorText = errorText + "- " + variables[i].name + "<br>";
+        errorText = errorText + "- " + variables[i].name + " | Wartość: " + variables[i].value + " <br>";
     }
     showError("Zmienne w tym projekcie", errorText)
-    console.log(getPublicVariables(getScene(projekt)));
 }
-DebugA();
+function showSprites() {
+    var errorText = "";
+    var variables = getSprites(projekt);
+    for (var i = 0; i < variables.length; i++) {
+        errorText = errorText + "- " + variables[i] + "<br>";
+    }
+    showError("Duszki w tym projekcie", errorText)
+}
+function openProject() {
+    document.getElementById("fileopen").click();
+}
+
+document.getElementById("fileopen").addEventListener('change', function() {
+    var fr = new FileReader();
+    fr.onload = function() {
+        try {
+            projekt = JSON.parse(fr.result);
+            console.log ("LOL");
+        } catch {
+            showError("Nie udało się załadować projektu.", "Podany plik jest uszkodzony.")
+        }
+        
+    }
+    fr.readAsText(this.files[0]);
+});
