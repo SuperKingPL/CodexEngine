@@ -61,7 +61,7 @@ function showVariables() {
     for (var i = 0; i < variables.length; i++) {
         errorText = errorText + "- " + variables[i].name + " | Wartość: " + variables[i].value + " <br>";
     }
-    showError("Zmienne w tym projekcie", errorText)
+    Debug.error("Zmienne w tym projekcie", errorText)
 }
 // Show sprites from Scratch project.
 function showSprites() {
@@ -70,7 +70,7 @@ function showSprites() {
     for (var i = 0; i < variables.length; i++) {
         errorText = errorText + "- " + variables[i] + "<br>";
     }
-    showError("Duszki w tym projekcie", errorText)
+    Debug.error("Duszki w tym projekcie", errorText)
 }
 // Open Scratch Project.
 function openProject() {
@@ -84,7 +84,7 @@ document.getElementById("fileopen").addEventListener('change', function() {
             projekt = JSON.parse(fr.result);
             console.log ("LOL");
         } catch {
-            showError("Nie udało się załadować projektu.", "Podany plik jest uszkodzony.")
+            Debug.error("Nie udało się załadować projektu.", "Podany plik jest uszkodzony.")
         }
         
     }

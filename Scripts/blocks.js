@@ -27,7 +27,7 @@ class CodexBlock {
     }
     reportValue(value) {
         this.enableBlock();
-        displayTooltip(value, this.element, "bottom", 3);
+        Debug.tooltip(value, this.element, "bottom", 3);
         this.disableBlock();
     }
     getInputs() {

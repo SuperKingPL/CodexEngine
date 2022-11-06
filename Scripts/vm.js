@@ -41,5 +41,5 @@ function runProject() {
     }
 }
 
-//Debug.error("Codex Engine 2.0", "<b>Co nowego?</b><br>・system przesuwania bloczków.<br>・wiadomość przy uruchomieniu projektu.<br>・skrypty, kompatybilności Codex Engine ze Scratchem.<br>・Typy bloków<br>・Debuger Scratcha<br>・Naprawy błędów (w tym ekranu).")
-Debug.setState("Wydanie beta 1.0. Wczesny dostęp.");
+Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
+Debug.setState("Wydanie beta 2.1. Wczesny dostęp.");
