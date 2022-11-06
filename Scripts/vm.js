@@ -19,7 +19,7 @@ var projectRunning = false;
 
 function runProject() {
 
-    showError("Odtwarzania projektów nie jest jeszcze dostępne.", "Codex Engine jest w fazie BETA, przez co nie wszystkie funkcje są dostępne. <color blue>Masz tutaj padający śnieg, dla rozluźnienia :)</color>")
+    Debug.error("Odtwarzania projektów nie jest jeszcze dostępne.", "Codex Engine jest w fazie BETA, przez co nie wszystkie funkcje są dostępne. <color blue>Masz tutaj padający śnieg, dla rozluźnienia :)</color>")
 
     if (!projectRunning) {
         const snowflakes = document.createElement("div");
@@ -41,5 +41,5 @@ function runProject() {
     }
 }
 
-//showError("Codex Engine 2.0", "<b>Co nowego?</b><br>・system przesuwania bloczków.<br>・wiadomość przy uruchomieniu projektu.<br>・skrypty, kompatybilności Codex Engine ze Scratchem.<br>・Typy bloków<br>・Debuger Scratcha<br>・Naprawy błędów (w tym ekranu).")
-logData("Wydanie 1.0. Wczesny dostęp.");
+//Debug.error("Codex Engine 2.0", "<b>Co nowego?</b><br>・system przesuwania bloczków.<br>・wiadomość przy uruchomieniu projektu.<br>・skrypty, kompatybilności Codex Engine ze Scratchem.<br>・Typy bloków<br>・Debuger Scratcha<br>・Naprawy błędów (w tym ekranu).")
+Debug.setState("Wydanie beta 1.0. Wczesny dostęp.");
