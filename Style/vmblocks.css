@@ -3,8 +3,14 @@ block {
     color: white;
     border-radius: 5px;
     cursor:move;
-    position:relative;
+    position: relative;
     padding: 10px;
+    width: fit-content;
+    height: 30px;
+}
+block[light] {
+    width: 175px;
+    background-color: rgba(0, 132, 255, 0.426);
 }
 block[red] {
     background-color: rgb(255, 0, 0);
@@ -39,17 +45,24 @@ block[granat] {
 block[reporter] {
     border-radius:25px;
 }
-
 input {
     border: none;
     margin-left: 10px;
     padding: 5px;
     text-align: center;
     border-radius: 30px;
+    border: solid rgb(235, 235, 235) 1px;
 }
 input[num] {
     width: 30px;
 }
 input[text] {
     width: 50px;
+}
+select {
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
 }

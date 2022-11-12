@@ -4,12 +4,7 @@ class CodexBlock {
     remove() {
         this.element.remove();
     }
-    // Get block friendly name.
-    getFriendlyName() {
-        if (block == "when_start") {
-            return "Kiedy rozpoczęto";
-        }
-    }
+    // Run function
     runFunction(cmd) {
         if (this.type == "command") {
             this.enableBlock();
@@ -44,37 +39,80 @@ class CodexBlock {
             this.runFunction(() => {
                 addTextToViewport(this.inputs[0], 50, "Sans-serif", 10, 50);
             });
-        }
+        } else if (this.block == "sinus") {
+            this.reportValue(Math.sin(this.inputs[0]));
+        } else if (this.block == "divide") {
+            this.reportValue(this.inputs[0] / this.inputs[1]);
+        } else if (this.block == "multiply") {
+            this.reportValue(this.inputs[0] * this.inputs[1]);
+        } else if (this.block == "minus") {
+            this.reportValue(this.inputs[0] - this.inputs[1]);
+        } else if (this.block == "add") {
+            this.reportValue(parseInt(this.inputs[0]) + parseInt(this.inputs[1]));
+        } else if (this.block == "LogConsole") {
+        this.runFunction(() => {
+            log(this.inputs[0]);
+        });
     }
-    constructor(block, element) {
+    }
+    constructor(element) {
         // Set variables.
-        this.block = block;
+        this.block = element.getAttribute("name");
         this.element = element;
         this.inputs = [];
         
-        // Check block type
-        if (this.block == "random_number") {
+        if (this.element.getAttribute("reporter") != null) {
             this.type = "reporter";
-        } else if (this.block == "display_text") {
+        } else if (this.element.getAttribute("command") != null) {
             this.type = "command";
-        } else if (this.block == "when_started") {
+        } else if (this.element.getAttribute("event") != null) {
             this.type = "event";
         }
         // Handle activation: Right click
-        element.oncontextmenu = () => {
-            this.getInputs();
-            this.activateBlock();
-            return false;
-        }
+        element.addEventListener("click", (e) => {
+            if (e.shiftKey) {
+                this.getInputs();
+                this.activateBlock();
+                return false;
+            }
+        });
+        element.addEventListener("mouseover", (e) => {
+            var br = document.createElement("br");
+            var hightlight = document.createElement("block");
+            hightlight.setAttribute("light", "");
+            element.appendChild(hightlight);
+            element.appendChild(br);
+        });
     }
 }
 
 var Blocks = [
-    new CodexBlock("when_started", document.getElementById("a")),
-    new CodexBlock("display_text", document.getElementById("b")),
-    new CodexBlock("random_number", document.getElementById("c"))
+    new CodexBlock(document.getElementById("a")),
+    new CodexBlock(document.getElementById("b")),
+    new CodexBlock(document.getElementById("c")),
+    new CodexBlock(document.getElementById("d")),
+    new CodexBlock(document.getElementById("e")),
+    new CodexBlock(document.getElementById("f")),
+    new CodexBlock(document.getElementById("g")), 
+    new CodexBlock(document.getElementById("h")),
+    new CodexBlock(document.getElementById("i")),
 ];
 
+// var a = document.getElementById("a");
+// var blockArray = [
+//     [
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//     ],
+//     [
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//         new CodexBlock("when_start", a),
+//     ]
+// ]
 // Draggable content
 $("block").draggable({containment: "#menu"});
 

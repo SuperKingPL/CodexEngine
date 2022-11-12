@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="/Scripts/FileSaver.js"></script>
         <title>Codex Engine</title>
         <meta content="Codex Engine" property="og:title" />
         <meta content="Czas porzucić Scratcha. Oto nowej generacji Codex Engine. W fazie wczesnego dostępu." property="og:description" />
@@ -55,20 +56,24 @@
         <div id="debug">
             <img src="/Assets/codex-logo-vector.png" width="110px" height="20px" id="logo">
             <span style="margin-left: 15px;" id="debugData">No debug data here.</span>
-            <img style="margin-left: auto;" id="play" src="/Assets/play.png" width="35px" height="35px" onclick="runProject();">
+            <img onclick="save();" class="save" style="margin-left: auto;" src="/Assets/save.ico" width="45px" height="45px">
+            <img id="play" src="/Assets/play.png" width="35px" height="35px" onclick="runProject();">
         </div>
         <div id="app">
-            <div class="blocks">
-                <div class="category left">Skrypty</div>
-                <div class="category right">Kostiumy</div>
-    
-                <!-- Skrypty -->
-                <div class="cat"></div>
-            </div>
             <div id="menu">
-                <block red id="b">Wyświetl tekst<input text type="text"></block>
-                <block granat event id="a">Kiedy rozpoczęto</block>
-                <block green reporter id="c">Losuj liczbę od<input num><input num><tooltip bottom>test</tooltip></block>
+                <block red command name="display_text" id="b">Wyświetl tekst<input text type="text"></block>
+                <block granat event name="when_start" id="a">Kiedy rozpoczęto</block>
+                <block green reporter name="random_number" id="c">Losuj liczbę od<input num><input num></block>
+                <block green reporter name="sinus" id="d">Sinus z<input num></block>
+                <block green reporter name="divide" id="e"><input num> /<input num></block>
+                <block green reporter name="multiply" id="f"><input num> *<input num></block>
+                <block green reporter name="minus" id="g"><input num> -<input num></block>
+                <block green reporter name="add" id="h"><input num> +<input num></block>
+                <block light><select>
+                    <option>elo</option>
+                </select></block>
+                <block black command name="LogConsole" id="i">Loguj <input text></block>
+                <block light>&nbsp;</block>
             </div>
     
             <div class="canvas-interface">
@@ -87,10 +92,10 @@
         </div>
 
         <!-- Import important scripts -->
+        <script src="./Scripts/console.js"></script>
         <script src="./Scripts/debug.js"></script>
         <script src="./Scripts/blocks.js"></script>
         <script src="./Scripts/scratch-to-codex.js"></script>
         <script src="./Scripts/vm.js"></script>
-        <script src="./Scripts/console.js"></script>
     </body>
 </html>

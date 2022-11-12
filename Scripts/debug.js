@@ -1,4 +1,3 @@
-// Developer mode.
 isDebug = false;
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -98,9 +97,13 @@ function debugonly() {
         }
     }
 }
+function warnUnauthorized() {
+    console.log("%cZACZEKAJ!", "color: red; font-size: 70px; border: solid; text-shadow: 2px 2px #000");
+    console.log("%cJeśli ktoś powiedział Ci, żebyś coś skopiował i wkleił tutaj, to istnieje szansa 11/10 na to, że próbuje Cię oszukać.", "color: white; font-size: 20px;");
+}
 debugonly();
 saveChangesNotify();
-
-Debug.log("test");
-Debug.log("<color red>test</color>");
-Debug.log("<color blue>test</color>");
+warnUnauthorized();
+setInterval(() => {
+    warnUnauthorized();    
+}, 10 * 1000);

@@ -1,6 +1,7 @@
 tooltip {
     display: none;
-    width: 120px;
+    height: auto;
+    min-width: 30px;
     background-color: white;
     color: black;
     border: solid 1px;
@@ -20,13 +21,11 @@ tooltip[type="left"] {
     right: 105%;
 }
 tooltip[type="top"] {
-    width: 120px;
     bottom: 100%;
     left: 50%;
     margin-left: -60px;
 }
 tooltip[type="bottom"] {
-    width: 120px;
     top: 100%;
     left: 50%;
     margin-left: -60px;

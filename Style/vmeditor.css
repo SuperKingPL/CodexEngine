@@ -22,9 +22,9 @@ body, html {
     border-radius: 10px;
 }
 #menu {
-    width: 950px;
+    display: grid;
+    width: 70%;
     height: 794px;
-    float: left;
     margin: 10px;
     background-color: white;
     border-radius: 10px;
@@ -67,6 +67,16 @@ body, html {
     filter:brightness(100%);
     transition: 0.3s;
 }
+.save {
+    margin-right: 5px;
+    cursor: pointer;
+    filter: brightness(100%);
+    transition: 0.3s;
+}
+.save:hover {
+    filter: brightness(125%);
+    transition: 0.3s;
+}
 #play:hover {
     filter: brightness(120%);
     transition: 0.3s;
@@ -74,8 +84,10 @@ body, html {
 }
 #app {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
 }
 * {
     margin: 0;

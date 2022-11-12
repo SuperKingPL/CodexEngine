@@ -1,10 +1,3 @@
-class CodexSprite {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-
 function addTextToViewport(text, font_size, font, width, height) {
     const viewport = document.getElementById("project");
     const ctx = viewport.getContext('2d');
@@ -14,9 +7,7 @@ function addTextToViewport(text, font_size, font, width, height) {
         ctx.fillText(text, width, height)
     }
 }
-
 var projectRunning = false;
-
 function runProject() {
 
     Debug.error("Odtwarzania projektów nie jest jeszcze dostępne.", "Codex Engine jest w fazie BETA, przez co nie wszystkie funkcje są dostępne. <color blue>Masz tutaj padający śnieg, dla rozluźnienia :)</color>")
@@ -41,5 +32,12 @@ function runProject() {
     }
 }
 
-Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
+if (!isDebug) {
+    Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
+}
 Debug.setState("Wydanie beta 2.1. Wczesny dostęp.");
+
+function save() {
+    var project = new Blob(["PROJECT CONTENT SOON."], {type: "text/plain;charset=utf-8"})
+    saveAs(project, "project.cdx");
+}
