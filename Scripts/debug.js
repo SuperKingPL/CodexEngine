@@ -28,11 +28,12 @@ class Debug {
     static error(text, content) {
         const errorSound = new Audio("/Sounds/showError.mp3");
         errorSound.play();
-    
+        document.body.style.overflow = "hidden";
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         const error = document.getElementById("errorContainer");
         const Errortitle = document.getElementById("errortitle");
         const Errorcontent = document.getElementById("errorcontent");
-    
+        
         Errortitle.innerHTML = (text);
         Errorcontent.innerHTML = (content);
     
@@ -42,7 +43,7 @@ class Debug {
     static closeError() {
         const errorSound = new Audio("/Sounds/hideError.mp3");
         errorSound.play();
-    
+        document.body.style.overflow = "unset";
         $("#errorContainer").fadeOut(150);
     }
     static setState(data) {
@@ -98,12 +99,10 @@ function debugonly() {
     }
 }
 function warnUnauthorized() {
+    console.clear();
     console.log("%cZACZEKAJ!", "color: red; font-size: 70px; border: solid; text-shadow: 2px 2px #000");
     console.log("%cJeśli ktoś powiedział Ci, żebyś coś skopiował i wkleił tutaj, to istnieje szansa 11/10 na to, że próbuje Cię oszukać.", "color: white; font-size: 20px;");
 }
 debugonly();
 saveChangesNotify();
 warnUnauthorized();
-setInterval(() => {
-    warnUnauthorized();    
-}, 10 * 1000);
