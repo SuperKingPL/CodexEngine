@@ -1,4 +1,8 @@
 isDebug = false;
+saveNotifications = window.localStorage.getItem("saveNotify");
+if (saveNotifications == null) {
+    saveNotifications = false;
+}
 
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get("debug") == "true") {
@@ -6,13 +10,15 @@ if (urlParams.get("debug") == "true") {
 }
 
 function saveChangesNotify() {
-    // Save changes notification.
-    window.addEventListener('beforeunload', function (e) {
-        if (!isDebug) {
-            e.preventDefault();
-            e.returnValue = '';
-        }
-    });
+        if (saveNotifications) {
+        // Save changes notification.
+        window.addEventListener('beforeunload', function (e) {
+            if (!isDebug) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    }
 }
 
 saveChangesNotify();
@@ -25,7 +31,7 @@ function rand(min, max) {
 
 class Debug {
     // Display error.
-    static error(text, content) {
+    static error(text, content, button=true) {
         const errorSound = new Audio("/Sounds/showError.mp3");
         errorSound.play();
         document.body.style.overflow = "hidden";
@@ -34,6 +40,10 @@ class Debug {
         const Errortitle = document.getElementById("errortitle");
         const Errorcontent = document.getElementById("errorcontent");
         
+        if (!button) {
+            document.getElementById("closeErrorBTN").remove();
+        }
+
         Errortitle.innerHTML = (text);
         Errorcontent.innerHTML = (content);
     
@@ -99,7 +109,6 @@ function debugonly() {
     }
 }
 function warnUnauthorized() {
-    console.clear();
     console.log("%cZACZEKAJ!", "color: red; font-size: 70px; border: solid; text-shadow: 2px 2px #000");
     console.log("%cJeśli ktoś powiedział Ci, żebyś coś skopiował i wkleił tutaj, to istnieje szansa 11/10 na to, że próbuje Cię oszukać.", "font-size: 20px;");
 }

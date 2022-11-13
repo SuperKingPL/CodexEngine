@@ -31,7 +31,9 @@ function runProject() {
         projectRunning = false;
     }
 }
-
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
 if (!isDebug) {
     Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
 }
