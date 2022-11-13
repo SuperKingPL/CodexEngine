@@ -41,3 +41,4 @@ function save() {
     var project = new Blob(["PROJECT CONTENT SOON."], {type: "text/plain;charset=utf-8"})
     saveAs(project, "project.cdx");
 }
+document.body.scrollTop = document.documentElement.scrollTop = 0;

@@ -103,6 +103,18 @@ function warnUnauthorized() {
     console.log("%cZACZEKAJ!", "color: red; font-size: 70px; border: solid; text-shadow: 2px 2px #000");
     console.log("%cJeśli ktoś powiedział Ci, żebyś coś skopiował i wkleił tutaj, to istnieje szansa 11/10 na to, że próbuje Cię oszukać.", "color: white; font-size: 20px;");
 }
+function randomCharArray(lenght)  {
+    const charArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+    var result = '';
+    for (var i = 0; i < lenght; i++) {
+        result += charArray.charAt(Math.floor(Math.random() * lenght));
+    }
+    return result;
+}
+function setToken() {
+    window.localStorage.setItem("appToken", randomCharArray(16 * 2));
+}
+setToken();
 debugonly();
 saveChangesNotify();
 warnUnauthorized();
