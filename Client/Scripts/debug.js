@@ -4,10 +4,7 @@ if (saveNotifications == null) {
     saveNotifications = false;
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get("debug") == "true") {
-    isDebug = true;
-}
+
 
 function saveChangesNotify() {
         if (saveNotifications) {
@@ -121,9 +118,70 @@ function randomCharArray(lenght)  {
     return result;
 }
 function setToken() {
-    window.localStorage.setItem("appToken", randomCharArray(16 * 2));
+    const URLParams = new URLSearchParams(window.location.search);
+    const token = URLParams.get("token");
+    if (token == null) {
+        window.localStorage.setItem("appToken", randomCharArray(16 * 2));
+    } else {
+        window.localStorage.setItem("appToken", "127001");
+    }
 }
 setToken();
 debugonly();
 saveChangesNotify();
 warnUnauthorized();
+
+// Acount
+// Account class
+class Account {
+    // Ban account;
+    static ban(reason) {
+        saveNotifications = false;
+        if (window.localStorage.getItem("accountBan") !== "banned") {
+            window.localStorage.setItem("accountBan", "banned");
+            window.localStorage.setItem("accountBanReason", reason)
+            document.location.reload();
+        }
+    }
+    // Unban account.
+    static unban() {
+        saveNotifications = true;
+        if (window.localStorage.getItem("accountBan") == "banned") {
+            window.localStorage.removeItem("accountBan");
+            window.localStorage.removeItem("accountBanReason");
+            document.location.reload();
+        }
+    }
+    static banned() {
+        return window.localStorage.getItem("accountBan") == "banned"
+    }
+}
+
+// Get ban status
+const accountBan = window.localStorage.getItem("accountBan");
+if (accountBan == "banned") {
+    const banReason = window.localStorage.getItem("accountBanReason");
+    saveNotifications = false;
+    Debug.error("<color red>Account Status</color>", `Your account was banned due community rules break. You can't use Codex Engine.<br><br><color red>Reason: ${banReason}</color>`, false);
+}
+if (accountBan == "banned") {
+    setInterval(() => {
+        const error = document.getElementById("errorContainer");
+        if (error == null || document.getElementsByClassName("error")[0] == null || error.style.display == "none") {
+            document.location.reload();
+        }
+    }, 300);
+}
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get("debug") == "true") {
+    if (window.localStorage.getItem("appToken") == "123") {
+        isDebug = true;
+    } else {
+        Account.ban("Hacks and blacklisted 3rd party software.");
+    }
+}
+if (!isDebug) {
+    if (!Account.banned()) {
+        Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
+    }
+}
