@@ -1,5 +1,6 @@
 class database {
     constructor() {
+        // TODO: Przerobić
         const firebaseConfig = {
             apiKey: "AIzaSyDvIXvBIAifLzouK63Lec_m_nqVjLxkj1I",
             authDomain: "codex-engine-a8162.firebaseapp.com",
