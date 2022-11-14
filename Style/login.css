@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.loginContainer {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 630px;
+    height: 490px;
+    background-color: rgb(37, 112, 216);
+    border-radius: 10px;
+}
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
