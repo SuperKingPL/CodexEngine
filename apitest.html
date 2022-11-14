@@ -17,14 +17,20 @@
     <script>
         // Init database
         const cloud = new database();
-        
-        const updateUser = functions.cloud
 
         function CreateTestUser() {
             cloud.storage.collection("users").add({
             name: 'testowy użytkownik',
             created: Date.now()
         });
+        }
+        function getDocument() {
+            var docRef = cloud.storage.collection("users").doc("CRVi9pdawHKp6tFdRTo7");
+            docRef.get().then((doc) => {
+                if (doc.exists) {
+                    console.error(doc.data()["name"]);
+                }
+            })
         }
     </script>
 
@@ -40,6 +46,7 @@
     </div>
     <script src="/Scripts/debug.js"></script>
     <button onclick="CreateTestUser();">Get users</button>
+    <button onclick="getDocument();">Get document</button>
 </body>
 <style>button {float: left}</style>
 </html>
