@@ -13,24 +13,17 @@
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-functions-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+    <link rel="shortcut icon" href="#">
 
     <script>
-        // Init database
-        const cloud = new database();
+        const db = new Firebase();
 
+        db.update("users", "UGPf0fOOPZSZEymtJnOv", {bio: "ELO ELO"})
         function CreateTestUser() {
-            cloud.storage.collection("users").add({
-            name: 'testowy użytkownik',
-            created: Date.now()
-        });
-        }
-        function getDocument() {
-            var docRef = cloud.storage.collection("users").doc("CRVi9pdawHKp6tFdRTo7");
-            docRef.get().then((doc) => {
-                if (doc.exists) {
-                    console.error(doc.data()["name"]);
-                }
-            })
+            db.storage.collection("users").add({
+                name: 'testowy użytkownik',
+                created: Date.now()
+            });
         }
     </script>
 
