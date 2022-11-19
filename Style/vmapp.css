@@ -13,3 +13,6 @@ body {
     background-image: url("/Assets/cute-seamless-pattern-with-blue-computer-elements-white_257845-1535.webp");
     background-size: 355px;
 }
+* {
+    cursor: url('/Assets/cursor.png'),default !important
+}
