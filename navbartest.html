@@ -8,6 +8,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="/Style/navbar.css">
     <link rel="stylesheet" href="/Style/vmapp.css">
+    <link rel="stylesheet" href="/Style/loginform.css">
+    <link type="text/css" href="/Style/loginform.css" />
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
@@ -37,7 +40,35 @@
     </div>
 
     <div class="page">
-        eloelo
+        <div class="contact-wrapper">
+            <header class="login-cta">
+              <h2>Zaloguj się do Codex</h2>
+            </header>
+            <form>
+              <div class="form-row">
+                <input type="text" required>
+                <span>Adres email</span>
+              </div>
+              <div class="form-row">
+                <input type="password" required>
+                <span>Hasło</span>
+              </div>
+              <div class="form-row"></div>
+              <div class="form-row">
+                <button type="submit">Zaloguj się</button>
+              </div>
+            </form>
+            <!-- <div class="socials-wrapper">
+              <header>
+                <h2>Login with your Social Account</h2>     </header>
+              <ul>
+                <li><a href="#" class="facebook"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="twitch"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+              </ul>
+            </div> -->
+          </div>
     </div>
 
     <script src="/Scripts/navbar.js"></script>
