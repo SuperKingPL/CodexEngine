@@ -4,14 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/Assets/cute-seamless-pattern-with-blue-computer-elements-white_257845-1535.webp");
-    background-size: 355px;
-    border: solid 20px white;
-    border-radius: 55px;
 }
 * {
     user-select: none;
 }
 body {
     overflow: hidden;
+    background-image: url("/Assets/cute-seamless-pattern-with-blue-computer-elements-white_257845-1535.webp");
+    background-size: 355px;
 }
