@@ -180,7 +180,7 @@ if (urlParams.get("debug") == "true") {
         Account.ban("Hacks and blacklisted 3rd party software.");
     }
 }
-if (!isDebug) {
+if (isDebug) { // Add !isDebug
     if (!Account.banned()) {
         Debug.error("Codex Engine 2.1", "<b>Co nowego?</b><br>・Naprawiono błędy wyświetlania okien modalnych.<br>・Uporządkowano kod.<br>・Naprawiono błąd (tooltip).<br>・Nowa konsola (tylko w trybie dewelopera).")
     }
