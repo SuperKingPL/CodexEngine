@@ -1,54 +1,187 @@
 <!DOCTYPE html>
 
+<!-- Define HTML property and polish launguage. -->
 <html lang="pl">
-<head>
+  <head>
+    <!-- Page title -->
+    <title>Codex Engine: Uwolnij swoją kreatywność</title>
+
+    <!-- Document properties -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!-- Import stylesheets -->
     <link rel="stylesheet" href="/Style/navbar.css">
     <link rel="stylesheet" href="/Style/vmapp.css">
     <link rel="stylesheet" href="/Style/loginform.css">
     <link type="text/css" href="/Style/loginform.css" />
-    <script src="/Scripts/firebase.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+    <link rel="stylesheet" href="/Style/Modal.css">
+    <link rel="stylesheet" href="/Style/VMEditor.css">
+    <link rel="stylesheet" href="./Style/vmblocks.css">
+    <link rel="stylesheet" href="./Style/utils.css">
+    <link rel="stylesheet" href="./Style/snowflake.css">
+    <link rel="stylesheet" href="./Style/tooltip.css">
+
+    <!-- Firebase integration -->
+    <script src="/Scripts/Firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/less"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
-</head>
-<body>
-    <!-- Navbar menu in app. -->
-    <div id="navbar-animmenu">
-        <ul class="show-dropdown main-navbar">
-            <div class="hori-selector"></div>
-            <li>
-                <a href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Strona główna</a>
-            </li>
-            <li class="active">
-                <a href="javascript:void(0);"><i class="far fa-address-book"></i>Stwórz projekt</a>
-            </li>
-            <li>
-                <a href="javascript:void(0);"><i class="far fa-clone"></i>Eksploruj projekty</a>
-            </li>
-            <li>
-                <a href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Wiadomości</a>
-            </li>
-            <li>
-                <a href="javascript:void(0);"><i class="far fa-chart-bar"></i>Zaloguj się</a>
-            </li>
-            
-            
-        </ul>
+  
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Favicons/favicon-16x16.png">
+    <link rel="manifest" href="/Favicons/site.webmanifest">
+    <link rel="mask-icon" href="/Favicons/safari-pinned-tab.svg" color="#00a3d1">
+    <link rel="shortcut icon" href="/Favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Codex Engine">
+    <meta name="application-name" content="Codex Engine">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/Favicons/browserconfig.xml">
+  </head>
+
+  <body>
+    <!-- Disabled screen (for small desktops) -->
+    <div class="disabledScreen">
+      <screenWarn>Używasz niekompatybilnego ekranu.</screenWarn>
     </div>
 
+    <!-- Error modal -->
+    <div id="errorContainer" style="display: none;">
+      <div class="error">
+          <h1 id="errortitle">Error Title</h1>
+          <p id="errorcontent">Error Content</p>
+          <button id="closeErrorBTN" red error onclick="Debug.closeError();">Zamknij</button>
+      </div>
+    </div>
+
+    <!-- Navbar menu in app. -->
+    <div id="navbar-animmenu">
+      <ul class="show-dropdown main-navbar">
+        <div class="hori-selector"></div>
+        <li>
+          <a href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i><span class="menuOption">Strona główna</span></a>
+        </li>
+        <li class="active">
+          <a href="javascript:void(0);"><i class="far fa-address-book"></i><span class="menuOption">Stwórz projekt</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"><i class="far fa-clone"></i><span class="menuOption"></span>Wiadomości</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"><i class="far fa-calendar-alt"></i><span class="menuOption">Wiadomości</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"><i class="far fa-chart-bar"></i><span class="menuOption">Zaloguj się</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Page (fundamental of page) -->
     <div class="page">
-      <login>
+      <!-- Editor -->
+      <input type="file" id="fileopen" style="display: none;">
+      <div id="errorContainer" style="display: none;">
+          <div class="error">
+              <h1 id="errortitle">Error Title</h1>
+              <p id="errorcontent">Error Content</p>
+              <button id="closeErrorBTN" red error onclick="Debug.closeError();">Zamknij</button>
+          </div>
+      </div>
+
+      <debugonly>
+          <div id="console">
+              <div class="nav">
+                  <h2>Konsola</h2>
+              </div>
+              <div id="consolecontent"></div>
+              <input console type="text" placeholder="Type command here...">
+          </div>
+      </debugonly>
+
+      <div id="debug">
+          <img src="/Assets/codex-logo-vector.png" width="110px" height="20px" id="logo">
+          <span style="margin-left: 15px;" id="debugData">No debug data here.</span>
+          <img onclick="save();" class="save" style="margin-left: auto;" src="/Assets/save.ico" width="45px" height="45px">
+          <img id="play" src="/Assets/play.png" width="35px" height="35px" onclick="runProject();">
+      </div>
+      <div id="app">
+          <div id="menu">
+              <block red command name="display_text" id="b">Wyświetl tekst<input text type="text"></block>
+              <block granat event name="when_start" id="a">Kiedy rozpoczęto</block>
+              <block green reporter name="random_number" id="c">Losuj liczbę od<input num><input num></block>
+              <block green reporter name="sinus" id="d">Sinus z<input num></block>
+              <block green reporter name="divide" id="e"><input num> /<input num></block>
+              <block green reporter name="multiply" id="f"><input num> *<input num></block>
+              <block green reporter name="minus" id="g"><input num> -<input num></block>
+              <block green reporter name="add" id="h"><input num> +<input num></block>
+              <block light><select>
+                  <option>elo</option>
+              </select></block>
+              <block black command name="LogConsole" id="i">Loguj <input text></block>
+              <block light>&nbsp;</block>
+          </div>
+  
+          <div class="canvas-interface">
+              <canvas id="project" width="500" height="500"></canvas> 
+              <br>
+              <div class="objects">
+                  <debugonly>
+                      <img class="scratch" src="/Assets/scratch.png" width="260px" height="100px">
+                      <button onclick="openProject();">Otwórz projekt</button>
+                      <button onclick="showSprites();">Pokaż duszki</button>
+                      <button onclick="showVariables();">Pokaż zmienne</button>
+                  </debugonly>
+                  <button black id="showConsole-btn" onclick="showConsole();">Pokaż konsolkę</button>
+              </div>
+          </div>
+      </div>
+      <!-- Home page -->
+      <home>
+
+      </home>
+
+      <register>
+        <div class="loginLeft">
+          <div class="contact-wrapper register" style="transform: scale(120%)">
+            <img src="/Assets/CodexLogo.png" width="60%" height="60%">
+            <header class="login-cta">
+              <h2>Zarejestruj się</h2>
+            </header>
+            <form id="loginForm">
+              <div class="form-row">
+                <input type="text" required id="emailInput">
+                <span>Adres email</span>
+              </div>
+              <div class="form-row">
+                <input type="password" required id="passwordInput">
+                <span>Hasło</span>
+              </div>
+              <div class="form-row">
+                <input type="password" required id="passwordInput">
+                
+                <span>Powtórz hasło</span>
+              </div>
+              <div class="form-row"></div>
+              <div class="form-row">
+                <button type="submit">Zarejestruj się</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </register>
+
+      <!-- Login page -->
+      <!-- <login>
         <div class="loginLeft">
           <div class="contact-wrapper" style="transform: scale(120%)">
-            <img src="/Assets/codex-logo-vector.png" width="60%" height="60%">
+            <img src="/Assets/CodexLogo.png" width="60%" height="60%">
             <header class="login-cta">
               <h2>Zaloguj się do Codex</h2>
             </header>
@@ -68,11 +201,16 @@
             </form>
           </div>
         </div>
-      </login>
-        <img src="/Assets/22-225235_4k-images.jpg" class="loginImage" width="4920" height="3080">
+      </login> -->
+      <img src="/Assets/LoginBackground.jpg" class="loginImage" width="4920" height="3080">
     </div>
 
-    <script src="/Scripts/navbar.js"></script>
-    <script src="/Scripts/auth.js"></script>
-</body>
+    <script src="/Scripts/Components/Navbar.js"></script>
+    <script src="/Scripts/Auth.js"></script>
+    <script src="/Scripts/Debug.js"></script>
+    <script src="./Scripts/console.js"></script>
+    <script src="./Scripts/blocks.js"></script>
+    <script src="./Scripts/scratch-to-codex.js"></script>
+    <script src="./Scripts/vm.js"></script>
+  </body>
 </html>

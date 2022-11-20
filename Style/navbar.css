@@ -52,8 +52,6 @@ i {
 	background-color: transparent;
 	transition: all 0.7s;
 }
-
-
 #navbar-animmenu a:not(:only-child):after {
 	content: "\f105";
 	position: absolute;

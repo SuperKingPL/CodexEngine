@@ -1,3 +1,6 @@
+ul {
+    list-style-type: none;
+}
 .page {
     width: 100%;
     height: 92vh;
@@ -9,9 +12,6 @@
 }
 body {
     overflow: hidden;
-    /* background-image: url("/Assets/cute-seamless-pattern-with-blue-computer-elements-white_257845-1535.webp");
-    background-size: 355px;
-    background-color: white; */
 }
 * {
     cursor: url('/Assets/cursor.png'),default !important;
@@ -19,10 +19,30 @@ body {
 *:hover {
     cursor: url('https://cdn.custom-cursor.com/db/15051/32/starter-northern-lights-pointer.png'),pointer !important;
 }
-
 .loginImage {
     float: right;
     height: 100vh;
     width: 60%;
     object-fit: cover;
+}
+h1, p {
+    margin: 5px;
+}
+.disabledScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+.disabledScreen > screenWarn {
+    font-size: 20px;
+    color: red;
+    font-weight: bolder;
+}
+@media only screen and (min-width: 900px) {
+    .disabledScreen {
+        display: none;
+    }
 }

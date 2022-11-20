@@ -150,4 +150,13 @@ class Auth {
         const crendical = promptForCredentials();
         user.reauthenticateWithCredential
     }
+    isLogged(res = () => {}) {
+        this.onAuth(() => {
+            if (this.auth.currentUser) {
+                res(true);
+            } else {
+                res(false);
+            }
+        });
+    }
 }

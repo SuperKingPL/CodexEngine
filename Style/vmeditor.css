@@ -1,9 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap%27');
 
-body, html {
-    background-color: rgb(228, 228, 228);
-}
 #project {
     border: outset  5px;
     background-color: white;
@@ -105,12 +102,9 @@ button {
     filter: brightness(100%);
     transition: 0.1s;
     border-radius: 3px;
-    font-size: 20px;
-    height: 40px;
-    min-width: 150px;
+    font-size: 15px;
 }
 button:hover {
-    background-color: rgb(0, 145, 249);
     filter: brightness(120%);
     transition: 0.1s;
 }
