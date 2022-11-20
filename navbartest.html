@@ -10,15 +10,20 @@
     <link rel="stylesheet" href="/Style/vmapp.css">
     <link rel="stylesheet" href="/Style/loginform.css">
     <link type="text/css" href="/Style/loginform.css" />
+    <script src="/Scripts/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/less" ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
     <!-- Navbar menu in app. -->
     <div id="navbar-animmenu">
         <ul class="show-dropdown main-navbar">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <div class="hori-selector"></div>
             <li>
                 <a href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Strona główna</a>
             </li>
@@ -40,17 +45,20 @@
     </div>
 
     <div class="page">
-        <div class="contact-wrapper">
+      <login>
+        <div class="loginLeft">
+          <div class="contact-wrapper" style="transform: scale(120%)">
+            <img src="/Assets/codex-logo-vector.png" width="60%" height="60%">
             <header class="login-cta">
               <h2>Zaloguj się do Codex</h2>
             </header>
-            <form>
+            <form id="loginForm">
               <div class="form-row">
-                <input type="text" required>
+                <input type="text" required id="emailInput">
                 <span>Adres email</span>
               </div>
               <div class="form-row">
-                <input type="password" required>
+                <input type="password" required id="passwordInput">
                 <span>Hasło</span>
               </div>
               <div class="form-row"></div>
@@ -58,19 +66,13 @@
                 <button type="submit">Zaloguj się</button>
               </div>
             </form>
-            <!-- <div class="socials-wrapper">
-              <header>
-                <h2>Login with your Social Account</h2>     </header>
-              <ul>
-                <li><a href="#" class="facebook"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" class="twitch"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
-              </ul>
-            </div> -->
           </div>
+        </div>
+      </login>
+        <img src="/Assets/22-225235_4k-images.jpg" class="loginImage" width="4920" height="3080">
     </div>
 
     <script src="/Scripts/navbar.js"></script>
+    <script src="/Scripts/auth.js"></script>
 </body>
 </html>

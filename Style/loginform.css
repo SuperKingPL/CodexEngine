@@ -1,13 +1,29 @@
 *, *:before, *:after {
 	 box-sizing: border-box;
 }
- .contact-wrapper {
-	 background: rgb(255, 255, 255);
-	 box-shadow: 3px 3px 2px rgba(0, 0, 0, .15);
-	 border-radius: 0.75em;
-	 padding: 2em;
-	 width: 25em;
-     border: solid;
+
+.loginLeft {
+	height: 100%;
+	float: left;
+	width: 40%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+}
+@media only screen and (max-width: 700px) {
+	.loginLeft {
+		display: none;
+	}
+}
+.contact-wrapper {
+	background: rgb(255, 255, 255);
+	padding: 2em;
+	width: 80%;
+	float: left;
+	text-align: center;
+	min-width: 0;
+	box-sizing: border-box;
 }
  .login-cta > h2 {
 	 color: #3e3f5e;
@@ -123,7 +139,7 @@
 	 box-shadow: none;
 }
  form > .form-row > input:focus {
-	 border-color: #7b5dfa;
+	 border-color: #5161ce;
 	 outline: none;
 }
  form > .form-row > input:focus:invalid {
@@ -134,17 +150,17 @@
 	 top: 0;
 }
  form > .form-row > button {
-	 background-color: #7b5dfa;
-	 border: 0.1em solid #7b5dfa;
+	 background-color: #5161ce;
+	 border: 0.1em solid #5161ce;
 	 color: #fff;
 	 cursor: pointer;
 	 transition: all 300ms ease;
 }
  form > .form-row > button:focus {
-	 border: 0.1em solid #532cf8;
+	 border: 0.1em solid #5161ce;
 	 outline: none;
 }
  form > .form-row > button:hover {
-	 background-color: #6744f9;
+	 background-color: #5367e4;
 }
  
