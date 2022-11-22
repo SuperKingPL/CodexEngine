@@ -18,10 +18,6 @@
     <link type="text/css" href="/Style/loginform.css" />
     <link rel="stylesheet" href="/Style/Modal.css">
     <link rel="stylesheet" href="/Style/VMEditor.css">
-    <link rel="stylesheet" href="./Style/vmblocks.css">
-    <link rel="stylesheet" href="./Style/utils.css">
-    <link rel="stylesheet" href="./Style/snowflake.css">
-    <link rel="stylesheet" href="./Style/tooltip.css">
 
     <!-- Firebase integration -->
     <script src="/Scripts/Firebase.js"></script>
@@ -86,62 +82,6 @@
     <!-- Page (fundamental of page) -->
     <div class="page">
       <!-- Editor -->
-      <input type="file" id="fileopen" style="display: none;">
-      <div id="errorContainer" style="display: none;">
-          <div class="error">
-              <h1 id="errortitle">Error Title</h1>
-              <p id="errorcontent">Error Content</p>
-              <button id="closeErrorBTN" red error onclick="Debug.closeError();">Zamknij</button>
-          </div>
-      </div>
-
-      <debugonly>
-          <div id="console">
-              <div class="nav">
-                  <h2>Konsola</h2>
-              </div>
-              <div id="consolecontent"></div>
-              <input console type="text" placeholder="Type command here...">
-          </div>
-      </debugonly>
-
-      <div id="debug">
-          <img src="/Assets/codex-logo-vector.png" width="110px" height="20px" id="logo">
-          <span style="margin-left: 15px;" id="debugData">No debug data here.</span>
-          <img onclick="save();" class="save" style="margin-left: auto;" src="/Assets/save.ico" width="45px" height="45px">
-          <img id="play" src="/Assets/play.png" width="35px" height="35px" onclick="runProject();">
-      </div>
-      <div id="app">
-          <div id="menu">
-              <block red command name="display_text" id="b">Wyświetl tekst<input text type="text"></block>
-              <block granat event name="when_start" id="a">Kiedy rozpoczęto</block>
-              <block green reporter name="random_number" id="c">Losuj liczbę od<input num><input num></block>
-              <block green reporter name="sinus" id="d">Sinus z<input num></block>
-              <block green reporter name="divide" id="e"><input num> /<input num></block>
-              <block green reporter name="multiply" id="f"><input num> *<input num></block>
-              <block green reporter name="minus" id="g"><input num> -<input num></block>
-              <block green reporter name="add" id="h"><input num> +<input num></block>
-              <block light><select>
-                  <option>elo</option>
-              </select></block>
-              <block black command name="LogConsole" id="i">Loguj <input text></block>
-              <block light>&nbsp;</block>
-          </div>
-  
-          <div class="canvas-interface">
-              <canvas id="project" width="500" height="500"></canvas> 
-              <br>
-              <div class="objects">
-                  <debugonly>
-                      <img class="scratch" src="/Assets/scratch.png" width="260px" height="100px">
-                      <button onclick="openProject();">Otwórz projekt</button>
-                      <button onclick="showSprites();">Pokaż duszki</button>
-                      <button onclick="showVariables();">Pokaż zmienne</button>
-                  </debugonly>
-                  <button black id="showConsole-btn" onclick="showConsole();">Pokaż konsolkę</button>
-              </div>
-          </div>
-      </div>
       <!-- Home page -->
       <home>
 
@@ -162,11 +102,6 @@
               <div class="form-row">
                 <input type="password" required id="passwordInput">
                 <span>Hasło</span>
-              </div>
-              <div class="form-row">
-                <input type="password" required id="passwordInput">
-                
-                <span>Powtórz hasło</span>
               </div>
               <div class="form-row"></div>
               <div class="form-row">
